@@ -5,12 +5,20 @@
     <title>OTTSA</title>
   </head>
   <body>
-	<h1>OTTSA</h1>
+	<div id="app">
+	  <h1>OTTSA</h1>
 
-	<audio controls>
-	  <source>
-	</audio>
+	  <form @submit.prevent="onSubmit">
+		<textarea id="text" name="text" v-model="text"></textarea><br>
+		<input type="submit" value="Synthetize">
+	  </form>
+	  
+	  <audio id="player" ref="player" :src="tts" controls>
+	  </audio>
+	</div>
 
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="js/main.js"></script>
   </body>
 </html>
